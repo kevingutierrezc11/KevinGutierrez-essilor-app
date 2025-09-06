@@ -21,21 +21,21 @@ st.markdown(
     .stApp {
         background-color: #000000;
     }
-    /* Centrar imagen */
-    .centered-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+
+    /* Centrar imagen al 100% */
+    .full-width-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Mostrar imagen centrada
-logo = Image.open("logo.png")
-st.markdown('<div class="centered-image">', unsafe_allow_html=True)
-st.image(logo, width=300)
+# Mostrar imagen (centrada realmente en toda la página)
+st.markdown('<img src="app/static/logo.png" class="full-width-image" width="300">', unsafe_allow_html=True)
 st.markdown('</div>', unsafe_allow_html=True)
 
 #===============================================================
