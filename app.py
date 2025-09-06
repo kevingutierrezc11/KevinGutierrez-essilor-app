@@ -11,7 +11,7 @@ from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
 
 st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
-st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web (igual al cuaderno)")
+st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web - Auor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
 
 st.markdown(
     """
@@ -19,7 +19,7 @@ st.markdown(
     1. Sube **PLANTILLA_DATOS.xlsx** (Excel con filas de clientes).
     2. Sube **FR-EI-02.docx** (plantilla Word).
     3. Sube **FR-EI-04.xlsx**, **FR-EI-03.xlsx**, **FR-EI-05.xlsx** (plantillas Excel: Hoja de vida, Protocolo, Cronograma).
-    4. Haz clic en **Generar** — se descargará `DOCUMENTACION_CLIENTES.zip` que contiene un ZIP por cliente/equipo (igual que en tu notebook).
+    4. Haz clic en **Generar** — se descargará `DOCUMENTACION_CLIENTES.zip` que contiene un ZIP por cliente/equipo .
     """
 )
 
