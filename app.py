@@ -12,13 +12,33 @@ from openpyxl.utils import get_column_letter
 import streamlit as st
 from PIL import Image
 
-# Abrir la imagen directamente
-logo = Image.open("logo.png")
 
-# Mostrarla centrada
-st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
-st.image(logo, width=500)
-st.markdown("</div>", unsafe_allow_html=True)
+# CSS personalizado
+st.markdown(
+    """
+    <style>
+    /* Fondo negro total */
+    .stApp {
+        background-color: #000000;
+    }
+    /* Centrar imagen */
+    .centered-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Mostrar imagen centrada
+logo = Image.open("logo.png")
+st.markdown('<div class="centered-image">', unsafe_allow_html=True)
+st.image(logo, width=300)
+st.markdown('</div>', unsafe_allow_html=True)
+
+#===============================================================
 st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
 st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web - Auor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
 
