@@ -9,7 +9,17 @@ import streamlit as st
 from docx import Document
 from openpyxl import load_workbook
 from openpyxl.utils import get_column_letter
+import streamlit as st
 
+# Mostrar imagen centrada
+st.markdown(
+    """
+    <div style="text-align: center;">
+        <img src="logo.png" width="250">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
 st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web - Auor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
 
