@@ -13,30 +13,19 @@ import streamlit as st
 from PIL import Image
 
 
-# CSS personalizado
 st.markdown(
     """
     <style>
-    /* Fondo negro total */
     .stApp {
-        background-color: #000000;
-    }
-
-    /* Centrar imagen al 100% */
-    .full-width-image {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
+        background-color: #000000; /* Fondo negro */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Mostrar imagen (centrada realmente en toda la página)
-st.markdown('<img src="app/static/logo.png" class="full-width-image" width="300">', unsafe_allow_html=True)
-st.markdown('</div>', unsafe_allow_html=True)
+# Mostrar imagen centrada con st.image
+st.image("images/logo.png", use_container_width=False, output_format="auto")
 
 #===============================================================
 st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
