@@ -69,15 +69,15 @@ st.markdown(
 # ==============================
 # Mostrar dos imágenes lado a lado
 # ==============================
-col1, col2 = st.columns([1, 1])  # [1,1] significa que cada columna ocupa el 50%
+col1, col2 = st.columns([2, 1])  # [1,1] significa que cada columna ocupa el 50%
 
 with col1:
     logo = Image.open("logo.png")
-    st.image(logo, width=400)
+    st.image(logo, width=500)
 
 with col2:
     otra_imagen = Image.open("servioptica.png")  # reemplaza con el nombre real de tu imagen
-    st.image(otra_imagen, width=400)
+    st.image(otra_imagen, width=300)
 
 
 #===============================================================
