@@ -82,7 +82,7 @@ with col2:
 
 #===============================================================
 st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
-st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web - Auor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
+st.title("📂 Generador DOCUMENTACIÓN CLIENTES — Autor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
 
 st.markdown(
     """
