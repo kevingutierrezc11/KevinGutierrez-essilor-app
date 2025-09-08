@@ -20,33 +20,65 @@ import streamlit as st
 from PIL import Image
 
 # CSS personalizado para centrar
+#st.markdown(
+ #   """
+    #<style>
+    #/* Fondo negro total */
+    #.stApp {
+     #   background-color: #000000;
+    #}
+
+    #/* Centrar imagen */
+    #.centered-image {
+       # display: flex;
+      #  justify-content: center;
+     #   align-items: center;
+    #}
+    #</style>
+    #""",
+ #   unsafe_allow_html=True
+#)
+
+# Mostrar imagen centrada
+#logo = Image.open("logo.png")   # asegúrate que logo.png esté en la raíz junto a app.py
+#st.markdown('<div class="centered-image">', unsafe_allow_html=True)
+#st.image(logo, width=800)  # ajusta tamaño si quieres
+#st.markdown('</div>', unsafe_allow_html=True)
+#=====================================================================================================
+#st.markdown("<h1 class='title-center'>📂 Generador DOCUMENTACIÓN CLIENTES — versión web</h1>", unsafe_allow_html=True)
+#st.markdown("<h3 class='title-center'>Proyecto Kevin Gutiérrez Castillo</h3>", unsafe_allow_html=True)
+#=====================================================================================================
+# OPCION 2
+import streamlit as st
+from PIL import Image
+
+# ==============================
+# CSS personalizado
+# ==============================
 st.markdown(
     """
     <style>
-    /* Fondo negro total */
     .stApp {
-        background-color: #000000;
-    }
-
-    /* Centrar imagen */
-    .centered-image {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        background-color: #000000; /* Fondo negro */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Mostrar imagen centrada
-logo = Image.open("logo.png")   # asegúrate que logo.png esté en la raíz junto a app.py
-st.markdown('<div class="centered-image">', unsafe_allow_html=True)
-st.image(logo, width=800)  # ajusta tamaño si quieres
-st.markdown('</div>', unsafe_allow_html=True)
-#=====================================================================================================
-#st.markdown("<h1 class='title-center'>📂 Generador DOCUMENTACIÓN CLIENTES — versión web</h1>", unsafe_allow_html=True)
-#st.markdown("<h3 class='title-center'>Proyecto Kevin Gutiérrez Castillo</h3>", unsafe_allow_html=True)
+# ==============================
+# Mostrar dos imágenes lado a lado
+# ==============================
+col1, col2 = st.columns([1, 1])  # [1,1] significa que cada columna ocupa el 50%
+
+with col1:
+    logo = Image.open("logo.png")
+    st.image(logo, width=300)
+
+with col2:
+    otra_imagen = Image.open("otra.png")  # reemplaza con el nombre real de tu imagen
+    st.image(otra_imagen, width=300)
+
 
 #===============================================================
 st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
