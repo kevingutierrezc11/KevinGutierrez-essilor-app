@@ -19,36 +19,32 @@ from PIL import Image
 import streamlit as st
 from PIL import Image
 
-# ==============================
-# Estilos personalizados
-# ==============================
+# CSS personalizado para centrar
 st.markdown(
     """
     <style>
+    /* Fondo negro total */
     .stApp {
-        background-color: #000000; /* Fondo negro */
+        background-color: #000000;
     }
-    .title-center {
-        text-align: center;
-        color: white; /* Texto blanco */
+
+    /* Centrar imagen */
+    .centered-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# ==============================
-# Logo centrado con columnas
-# ==============================
-
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    logo = Image.open("logo.png")  # o "images/logo.png" si está en una carpeta
-    st.image(logo, width=600)
-
-# ==============================
-# Título y subtítulo centrados
-# ==============================
+# Mostrar imagen centrada
+logo = Image.open("logo.png")   # asegúrate que logo.png esté en la raíz junto a app.py
+st.markdown('<div class="centered-image">', unsafe_allow_html=True)
+st.image(logo, width=300)  # ajusta tamaño si quieres
+st.markdown('</div>', unsafe_allow_html=True)
+#=====================================================================================================
 st.markdown("<h1 class='title-center'>📂 Generador DOCUMENTACIÓN CLIENTES — versión web</h1>", unsafe_allow_html=True)
 st.markdown("<h3 class='title-center'>Proyecto Kevin Gutiérrez Castillo</h3>", unsafe_allow_html=True)
 
