@@ -87,9 +87,9 @@ st.title("📂 Generador DOCUMENTACIÓN CLIENTES — Autor : KEVIN EDUARDO GUTIE
 st.markdown(
     """
     **Instrucciones rápidas**:
-    1. Sube **PLANTILLA_DATOS.xlsx** (Excel con filas de clientes).
-    2. Sube **FR-EI-02.docx** (plantilla Word).
-    3. Sube **FR-EI-04.xlsx**, **FR-EI-03.xlsx**, **FR-EI-05.xlsx** (plantillas Excel: Hoja de vida, Protocolo, Cronograma).
+    1. Sube **DATOS CLIENTES.xlsx** (Excel donde se encuentran los datos de todos los clientes).
+    2. Sube **FR-EI-02.docx** (ENTREGA DE EQUIPO A CONFORMIDAD Y CONDICIONES DE GARANTÍA (WORD)).
+    3. Sube **FR-EI-04.xlsx**, **FR-EI-03.xlsx**, **FR-EI-05.xlsx** (Excel: HOJA DE VIDA DEL EQUIPO,PROTOCOLO DE MANTENIMIENTO PREVENTIVO, CRONOGRAMA DE MANTENIMIENTO).
     4. Haz clic en **Generar** — se descargará `DOCUMENTACION_CLIENTES.zip` que contiene un ZIP por cliente/equipo .
     """
 )
@@ -101,14 +101,14 @@ st.header("1) Cargar archivos base")
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    plantilla_datos_file = st.file_uploader("📊 PLANTILLA_DATOS.xlsx (Excel con clientes)", type=["xlsx", "xls", "csv"])
-    fr_ei_02_file = st.file_uploader("📝 FR-EI-02.docx (plantilla Word)", type=["docx"])
-    fr_ei_04_file = st.file_uploader("📑 FR-EI-04.xlsx (plantilla Hoja de Vida)", type=["xlsx"])
-    fr_ei_03_file = st.file_uploader("📑 FR-EI-03.xlsx (plantilla Protocolo MMTO preventivo)", type=["xlsx"])
-    cronograma_file = st.file_uploader("📑 FR-EI-05.xlsx (plantilla Cronograma de mantenimiento)", type=["xlsx"])
+    plantilla_datos_file = st.file_uploader("📊 DATOS CLIENTES (Excel con clientes)", type=["xlsx", "xls", "csv"])
+    fr_ei_02_file = st.file_uploader("📝 FR-EI-02 ENTREGA DE EQUIPO A CONFORMIDAD Y CONDICIONES DE GARANTÍA (WORD)", type=["docx"])
+    fr_ei_04_file = st.file_uploader("📑 FR-EI-04 HOJA DE VIDA DEL EQUIPO - ", type=["xlsx"])
+    fr_ei_03_file = st.file_uploader("📑 FR-EI-03 PROTOCOLO DE MANTENIMIENTO PREVENTIVO", type=["xlsx"])
+    cronograma_file = st.file_uploader("📑 FR-EI-05 CRONOGRAMA DE MANTENIMIENTO", type=["xlsx"])
 with col2:
     st.markdown("**Estado de carga**")
-    st.write("PLANTILLA_DATOS:", getattr(plantilla_datos_file, "name", "—"))
+    st.write("DATOS CLIENTES:", getattr(plantilla_datos_file, "name", "—"))
     st.write("FR-EI-02 (Word):", getattr(fr_ei_02_file, "name", "—"))
     st.write("FR-EI-04 (Excel):", getattr(fr_ei_04_file, "name", "—"))
     st.write("FR-EI-03 (Excel):", getattr(fr_ei_03_file, "name", "—"))
