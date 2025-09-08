@@ -43,7 +43,7 @@ st.markdown(
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     logo = Image.open("logo.png")  # o "images/logo.png" si está en una carpeta
-    st.image(logo, width=300)
+    st.image(logo, width=600)
 
 # ==============================
 # Título y subtítulo centrados
