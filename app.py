@@ -87,9 +87,9 @@ st.title("📂 Generador DOCUMENTACIÓN CLIENTES — Autor : KEVIN EDUARDO GUTIE
 st.markdown(
     """
     **Instrucciones rápidas**:
-    1. Sube **DATOS CLIENTES.xlsx** (Excel donde se encuentran los datos de todos los clientes).
-    2. Sube **FR-EI-02.docx** (ENTREGA DE EQUIPO A CONFORMIDAD Y CONDICIONES DE GARANTÍA (WORD)).
-    3. Sube **FR-EI-04.xlsx**, **FR-EI-03.xlsx**, **FR-EI-05.xlsx** (Excel: HOJA DE VIDA DEL EQUIPO,PROTOCOLO DE MANTENIMIENTO PREVENTIVO, CRONOGRAMA DE MANTENIMIENTO).
+    1. Sube **DATOS CLIENTES** (Excel donde se encuentran los datos de todos los clientes).
+    2. Sube **FR-EI-02** (ENTREGA DE EQUIPO A CONFORMIDAD Y CONDICIONES DE GARANTÍA (WORD)).
+    3. Sube **FR-EI-04**, **FR-EI-03**, **FR-EI-05** (Excel: HOJA DE VIDA DEL EQUIPO,PROTOCOLO DE MANTENIMIENTO PREVENTIVO, CRONOGRAMA DE MANTENIMIENTO).
     4. Haz clic en **Generar** — se descargará `DOCUMENTACION_CLIENTES.zip` que contiene un ZIP por cliente/equipo .
     """
 )
