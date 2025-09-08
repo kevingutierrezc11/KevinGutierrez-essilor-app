@@ -76,7 +76,7 @@ with col1:
     st.image(logo, width=300)
 
 with col2:
-    otra_imagen = Image.open("otra.png")  # reemplaza con el nombre real de tu imagen
+    otra_imagen = Image.open("servioptica.png")  # reemplaza con el nombre real de tu imagen
     st.image(otra_imagen, width=300)
 
 
