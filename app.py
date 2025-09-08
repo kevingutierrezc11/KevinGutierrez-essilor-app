@@ -73,11 +73,11 @@ col1, col2 = st.columns([1, 1])  # [1,1] significa que cada columna ocupa el 50%
 
 with col1:
     logo = Image.open("logo.png")
-    st.image(logo, width=800)
+    st.image(logo, width=600)
 
 with col2:
     otra_imagen = Image.open("servioptica.png")  # reemplaza con el nombre real de tu imagen
-    st.image(otra_imagen, width=800)
+    st.image(otra_imagen, width=600)
 
 
 #===============================================================
