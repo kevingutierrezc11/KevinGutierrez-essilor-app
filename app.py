@@ -101,7 +101,7 @@ st.header("1) Cargar archivos base")
 col1, col2 = st.columns([2, 1])
 
 with col1:
-    plantilla_datos_file = st.file_uploader("📊 DATOS CLIENTES (Excel con clientes)", type=["xlsx", "xls", "csv"])
+    plantilla_datos_file = st.file_uploader("📊 DATOS CLIENTES (Excel donde se encuentran los datos de todos los clientes)", type=["xlsx", "xls", "csv"])
     fr_ei_02_file = st.file_uploader("📝 FR-EI-02 ENTREGA DE EQUIPO A CONFORMIDAD Y CONDICIONES DE GARANTÍA (WORD)", type=["docx"])
     fr_ei_04_file = st.file_uploader("📑 FR-EI-04 HOJA DE VIDA DEL EQUIPO - ", type=["xlsx"])
     fr_ei_03_file = st.file_uploader("📑 FR-EI-03 PROTOCOLO DE MANTENIMIENTO PREVENTIVO", type=["xlsx"])
