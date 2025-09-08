@@ -42,15 +42,15 @@ st.markdown(
 # Mostrar imagen centrada
 logo = Image.open("logo.png")   # asegúrate que logo.png esté en la raíz junto a app.py
 st.markdown('<div class="centered-image">', unsafe_allow_html=True)
-st.image(logo, width=300)  # ajusta tamaño si quieres
+st.image(logo, width=800)  # ajusta tamaño si quieres
 st.markdown('</div>', unsafe_allow_html=True)
 #=====================================================================================================
-st.markdown("<h1 class='title-center'>📂 Generador DOCUMENTACIÓN CLIENTES — versión web</h1>", unsafe_allow_html=True)
-st.markdown("<h3 class='title-center'>Proyecto Kevin Gutiérrez Castillo</h3>", unsafe_allow_html=True)
+#st.markdown("<h1 class='title-center'>📂 Generador DOCUMENTACIÓN CLIENTES — versión web</h1>", unsafe_allow_html=True)
+#st.markdown("<h3 class='title-center'>Proyecto Kevin Gutiérrez Castillo</h3>", unsafe_allow_html=True)
 
 #===============================================================
-#st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
-#st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web - Auor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
+st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
+st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web - Auor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
 
 st.markdown(
     """
