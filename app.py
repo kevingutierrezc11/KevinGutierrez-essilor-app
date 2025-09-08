@@ -13,20 +13,34 @@ import streamlit as st
 from PIL import Image
 
 
+import streamlit as st
+from PIL import Image
+
+# CSS personalizado para centrar
 st.markdown(
     """
     <style>
+    /* Fondo negro total */
     .stApp {
-        background-color: #000000; /* Fondo negro */
+        background-color: #000000;
+    }
+
+    /* Centrar imagen */
+    .centered-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Mostrar imagen centrada con st.image
-st.image("images/logo.png", use_container_width=False, output_format="auto")
-
+# Mostrar imagen centrada
+logo = Image.open("logo.png")   # asegúrate que logo.png esté en la raíz junto a app.py
+st.markdown('<div class="centered-image">', unsafe_allow_html=True)
+st.image(logo, width=300)  # ajusta tamaño si quieres
+st.markdown('</div>', unsafe_allow_html=True)
 #===============================================================
 st.set_page_config(page_title="Generador DOCUMENTACIÓN CLIENTES - EssilorLuxottica", layout="wide")
 st.title("📂 Generador DOCUMENTACIÓN CLIENTES — versión web - Auor : KEVIN EDUARDO GUTIERREZ CASTILLO ")
