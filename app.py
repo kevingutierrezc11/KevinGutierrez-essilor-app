@@ -41,7 +41,7 @@ st.markdown(
 # Logo centrado con columnas
 # ==============================
 
-col1, col2, col3 = st.columns([2, 2, 1])
+col1, col2, col3 = st.columns([2, 1, 1])
 with col2:
     logo = Image.open("logo.png")  # o "images/logo.png" si está en una carpeta
     st.image(logo, width=600)
