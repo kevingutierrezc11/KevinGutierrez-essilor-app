@@ -35,13 +35,13 @@ st.markdown(
 # ==============================
 # Mostrar imágenes lado a lado
 # ==============================
-col1, col2, col3 = st.columns([2, 1, 1])  # más espacio a la izquierda para empujar la segunda imagen
+col1, col2, col3 = st.columns([2, 1, 1])
 
 with col1:
     logo = Image.open("logo.png")
     st.image(logo, width=500)
 
-with col3:  # se usa col3 para que se corra más a la derecha
+with col3:
     otra_imagen = Image.open("servioptica.png")
     st.image(otra_imagen, width=300)
 
@@ -88,7 +88,10 @@ st.markdown("---")
 # Helpers
 # -------------------------
 def write_respecting_merged(ws, target_cell, value):
-    """Escribe en la celda superior izquierda si la celda pertenece a un merge."""
+    """
+    Si target_cell pertenece a un rango mergeado, escribe en la celda superior-izquierda
+    del rango. Si no, escribe en target_cell directamente.
+    """
     for merged in ws.merged_cells.ranges:
         if target_cell in str(merged):
             tl_col = get_column_letter(merged.min_col)
@@ -152,10 +155,10 @@ if generate:
                 fecha_word = safe_str(row.get("FECHA INSTALACION(WORD)", ""))
                 nit_cliente = safe_str(row.get("NIT CLIENTE", ""))
                 tipo_mmto = safe_str(row.get("TIPO MMTO", ""))
-                FRECUENCIA = safe_str(row.get("FRECUENCIA", ""))
-                DIRECCION = safe_str(row.get("DIRECCION", ""))
+                frecuencia = safe_str(row.get("FRECUENCIA", ""))
+                direccion = safe_str(row.get("DIRECCION", ""))
                 modelo = safe_str(row.get("MODELO", ""))
-                UBICACION_DEL_EQUIPO = safe_str(row.get("UBICACIÓN DEL EQUIPO (ÁREA)", ""))
+                ubicacion_equipo = safe_str(row.get("UBICACIÓN DEL EQUIPO (ÁREA)", ""))
                 dia = safe_str(row.get("DD", ""))
                 mes = safe_str(row.get("MM", ""))
                 anio = safe_str(row.get("AA", ""))
@@ -184,7 +187,7 @@ if generate:
                 word_name = f"FR-EI-02-{cliente}-{equipo}.docx"
                 doc.save(os.path.join(folder_path, word_name))
 
-                # ---------- B) FR-EI-04 Hoja de vida (Excel) ----------
+                # ---------- B) FR-EI-04 Hoja de vida ----------
                 wb_hv = load_workbook(io.BytesIO(fr_ei_04_bytes))
                 ws_hv = wb_hv.active
                 try:
@@ -215,14 +218,14 @@ if generate:
                 try:
                     write_respecting_merged(ws_crono, "B10", row.get("NOMBRE DEL EQUIPO", ""))
                     write_respecting_merged(ws_crono, "E10", serie)
-                    write_respecting_merged(ws_crono, "F10", tipo_mmto)
+                    write_respecting_merged(ws_crono, "F10", tipo_mmto)   # Tipo de mantenimiento
+                    write_respecting_merged(ws_crono, "G10", frecuencia)  # Frecuencia de mantenimiento
                     write_respecting_merged(ws_crono, "D5", nit_cliente)
                     write_respecting_merged(ws_crono, "R6", fecha_word)
-                    write_respecting_merged(ws_crono, "G10", FRECUENCIA)
-                    write_respecting_merged(ws_crono, "F5", DIRECCION)
+                    write_respecting_merged(ws_crono, "F5", direccion)
                     write_respecting_merged(ws_crono, "R5", ciudad)
                     write_respecting_merged(ws_crono, "D10", modelo)
-                    write_respecting_merged(ws_crono, "D6", UBICACION_DEL_EQUIPO)
+                    write_respecting_merged(ws_crono, "D6", ubicacion_equipo)
                     write_respecting_merged(ws_crono, "D4", row.get("CLIENTE", ""))
                     write_respecting_merged(ws_crono, "R4", telefono)
                 except Exception as e:
