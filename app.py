@@ -196,7 +196,7 @@ if generate:
                     table.cell(3, 1).text = fecha_word
                 except Exception as e:
                     st.warning(f"No se pudo llenar tabla FR-EI-02 fila {index}: {e}")
-                word_name = f"FR-EI-02-{cliente}-{equipo}.docx"
+                word_name = f"FR-EI-02 ENTREGA DE EQUIPO A CONFORMIDAD Y CONDICIONES DE GARANTÍA-{cliente}-{equipo}.docx"
                 doc.save(os.path.join(folder_path, word_name))
 
                 # ---------- B) FR-EI-04 Hoja de vida ----------
@@ -213,7 +213,7 @@ if generate:
                     ws_hv["AD7"] = serie
                 except Exception as e:
                     st.warning(f"Error FR-EI-04 fila {index}: {e}")
-                wb_hv.save(os.path.join(folder_path, f"FR-EI-04-{cliente}-{equipo}.xlsx"))
+                wb_hv.save(os.path.join(folder_path, f"FR-EI-04 HOJA DE VIDA DEL EQUIPO-{cliente}-{equipo}.xlsx"))
 
                 # ---------- C) FR-EI-03 Protocolo MMTO ----------
                 wb_mmto = load_workbook(io.BytesIO(fr_ei_03_bytes))
@@ -222,7 +222,7 @@ if generate:
                     ws_mmto["A12"] = row.get("NOMBRE DEL EQUIPO", "")
                 except Exception as e:
                     st.warning(f"Error FR-EI-03 fila {index}: {e}")
-                wb_mmto.save(os.path.join(folder_path, f"FR-EI-03-{cliente}-{equipo}.xlsx"))
+                wb_mmto.save(os.path.join(folder_path, f"FR-EI-03 PROTOCOLO DE MANTENIMIENTO PREVENTIVO-{cliente}-{equipo}.xlsx"))
 
                 # ---------- D) FR-EI-05 Cronograma ----------
                 wb_crono = load_workbook(io.BytesIO(cronograma_bytes))
@@ -245,7 +245,7 @@ if generate:
                     write_respecting_merged(ws_crono, "R4", telefono)
                 except Exception as e:
                     st.warning(f"Error FR-EI-05 fila {index}: {e}")
-                wb_crono.save(os.path.join(folder_path, f"FR-EI-05-{cliente}-{equipo}.xlsx"))
+                wb_crono.save(os.path.join(folder_path, f"FR-EI-05 CRONOGRAMA DE MANTENIMIENTO -{cliente}-{equipo}.xlsx"))
 
                 # ---------- ZIP por cliente_equipo ----------
                 zip_path = os.path.join(output_dir, f"{cliente}_{equipo}.zip")
