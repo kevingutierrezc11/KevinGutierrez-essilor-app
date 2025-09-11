@@ -166,7 +166,7 @@ if generate:
                 serie = safe_str(row.get("SERIE", ""))
                 fecha_word = safe_str(row.get("FECHA INSTALACION(WORD)", ""))
                 nit_cliente = safe_str(row.get("NIT CLIENTE", ""))
-                tipo_mmto = safe_str(row.get("TIPO MMTO", ""))
+                tipo_mmto = safe_str(row.get("TIPO DE MANTENIMIENTO", ""))
                 frecuencia = safe_str(row.get("FRECUENCIA", ""))
                 direccion = safe_str(row.get("DIRECCION", ""))
                 modelo = safe_str(row.get("MODELO", ""))
