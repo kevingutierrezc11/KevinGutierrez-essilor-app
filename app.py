@@ -7,7 +7,7 @@ import pandas as pd
 import streamlit as st
 from docx import Document
 from openpyxl import load_workbook
-from openpyxl.utils import get_column_letter
+from openpyxl.utils import get_column_letter, coordinate_from_string, column_index_from_string
 from PIL import Image
 
 # ==============================
@@ -89,14 +89,24 @@ st.markdown("---")
 # -------------------------
 def write_respecting_merged(ws, target_cell, value):
     """
-    Si target_cell pertenece a un rango mergeado, escribe en la celda superior-izquierda
-    del rango. Si no, escribe en target_cell directamente.
+    Función general para escribir en celdas mergeadas o normales.
     """
     for merged in ws.merged_cells.ranges:
         if target_cell in str(merged):
             tl_col = get_column_letter(merged.min_col)
             tl_row = merged.min_row
             ws[f"{tl_col}{tl_row}"] = value
+            return
+    ws[target_cell] = value
+
+# Función mejorada SOLO para F10 y G10
+def write_respecting_merged_f10_g10(ws, target_cell, value):
+    col, row = coordinate_from_string(target_cell)
+    col_idx = column_index_from_string(col)
+
+    for merged in ws.merged_cells.ranges:
+        if (merged.min_col <= col_idx <= merged.max_col) and (merged.min_row <= row <= merged.max_row):
+            ws.cell(merged.min_row, merged.min_col, value)
             return
     ws[target_cell] = value
 
@@ -218,8 +228,11 @@ if generate:
                 try:
                     write_respecting_merged(ws_crono, "B10", row.get("NOMBRE DEL EQUIPO", ""))
                     write_respecting_merged(ws_crono, "E10", serie)
-                    write_respecting_merged(ws_crono, "F10", tipo_mmto)   # Tipo de mantenimiento
-                    write_respecting_merged(ws_crono, "G10", frecuencia)  # Frecuencia de mantenimiento
+
+                    # 👇 SOLO ESTAS DOS USAN LA NUEVA LÓGICA
+                    write_respecting_merged_f10_g10(ws_crono, "F10", tipo_mmto)   # Tipo de mantenimiento
+                    write_respecting_merged_f10_g10(ws_crono, "G10", frecuencia)  # Frecuencia de mantenimiento
+
                     write_respecting_merged(ws_crono, "D5", nit_cliente)
                     write_respecting_merged(ws_crono, "R6", fecha_word)
                     write_respecting_merged(ws_crono, "F5", direccion)
