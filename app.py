@@ -7,7 +7,9 @@ import pandas as pd
 import streamlit as st
 from docx import Document
 from openpyxl import load_workbook
-from openpyxl.utils import get_column_letter, coordinate_from_string, column_index_from_string
+from openpyxl.utils import get_column_letter
+from openpyxl.utils.cell import coordinate_from_string, column_index_from_string
+
 from PIL import Image
 
 # ==============================
